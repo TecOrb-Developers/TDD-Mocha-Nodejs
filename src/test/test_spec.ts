@@ -5,11 +5,13 @@ import { assert } from "chai";
 import request from "request";
 
 //test
-var a = 2
+var a = 2;
+var b = 'fix'
 describe('testing********', () => {
     it('if a is equal to 2', (done) => {
         expect(a).to.be.eq(2)
-        assert.equal(a, 2, 'equal')
+        assert.equal(a, 2, 'equal');
+        assert.equal(b, 'fix', 'equal')
         // a.should.to.be('2')
         done();
     });
