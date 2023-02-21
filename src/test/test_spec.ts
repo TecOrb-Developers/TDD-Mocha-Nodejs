@@ -11,7 +11,7 @@ describe('testing********', () => {
     it('if a is equal to 2', (done) => {
         expect(a).to.be.eq(2)
         assert.equal(a, 2, 'equal');
-        assert.equal(b, 'fix', 'equal')
+        assert.equal(b, 'fix', 'equal') //assert
         // a.should.to.be('2')
         done();
     });
