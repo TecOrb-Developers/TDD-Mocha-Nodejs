@@ -14,4 +14,4 @@
 ### use this script in package.json
 `"test": "mocha -r ts-node/register src/test/**/*_spec.ts"`
 ### testing command
-`npm test`
+`npm test` // Run command in Terminal
