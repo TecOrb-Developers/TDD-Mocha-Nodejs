@@ -1,6 +1,6 @@
 ## Write test cases using Mocha in Nodejs (src/test)
 ## Introduction
-`Write test cases using mocha in typescript.For testing purposes we are using mocha & chais.`
+`Write test cases using mocha in typescript.For testing purposes we are using mocha & chai.`
 
 
 `Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases`
