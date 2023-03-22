@@ -1,37 +1,162 @@
 {
-  "devDependencies": {
-    "@types/express": "^4.17.14",
-    "@types/mongodb": "^4.0.7",
-    "@types/node": "^18.11.0",
-    "chai": "^4.3.7",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
-  },
-  "name": "tyescript_project",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "typescript-project",
+  "version": "0.0.0",
   "scripts": {
-    "server": "nodemon server.ts",
-    "test": "mocha -r ts-node/register src/test/**/*_spec.ts"
+    "build": "./node_modules/.bin/ts-node build.ts",
+    "lint": "eslint . --ext .ts",
+    "start": "node -r module-alias/register ./dist --env=development",
+    "start:dev": "nodemon",
+    "test": " mocha -r ts-node/register src/test/**/*_spec.ts --timeout 10000",
+    "test-debug": "mocha --debug 'test/**/*.ts' --timeout 10000"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts, html",
+    "ignore": [
+      "src/public"
+    ],
+    "exec": "./node_modules/.bin/ts-node -r tsconfig-paths/register ./src"
+  },
+  "_moduleAliases": {
+    "@controllers": "dist/controllers",
+    "@utils": "dist/utils",
+    "@server": "dist/server",
+    "@routes": "dist/routes",
+    "@models": "dist/models",
+    "@validators": "dist/validators"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "max-len": [
+        "error",
+        {
+          "code": 100
+        }
+      ],
+      "no-console": 1,
+      "no-extra-boolean-cast": 0,
+      "@typescript-eslint/restrict-plus-operands": 0,
+      "@typescript-eslint/explicit-module-boundary-types": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/no-floating-promises": 0,
+      "@typescript-eslint/no-unsafe-member-access": 0,
+      "@typescript-eslint/no-unsafe-assignment": 0
+    }
+  },
+  "eslintIgnore": [
+    "src/public/",
+    "build.ts"
+  ],
   "dependencies": {
-    "@types/bcryptjs": "^2.4.2",
-    "@types/body-parser": "^1.19.2",
-    "@types/chai": "^4.3.4",
+    "@types/axios": "^0.14.0",
+    "@types/bcrypt": "^5.0.0",
     "@types/chai-http": "^4.2.0",
-    "@types/cors": "^2.8.12",
-    "@types/helmet": "^4.0.0",
-    "@types/jsonwebtoken": "^8.5.9",
+    "@types/jasmine": "^4.3.1",
     "@types/mocha": "^10.0.1",
     "@types/request": "^2.48.8",
-    "express": "^4.18.2",
+    "@types/supertest": "^2.0.12",
+    "app-root-path": "^3.1.0",
+    "bcrypt": "^5.1.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "cloudinary": "^1.29.0",
+    "command-line-args": "^5.2.1",
+    "cookie-parser": "^1.4.6",
+    "cron": "^2.2.0",
+    "crypto-js": "^4.1.1",
+    "datepicker": "0.0.0",
+    "decrypt": "^0.0.1",
+    "delay": "^5.0.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "encrypt": "^0.0.1",
+    "expo-firebase-recaptcha": "^2.2.0",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "fcm-node": "^1.6.1",
+    "firebase": "^9.9.0",
+    "fusioncharts": "^3.19.0",
+    "geolib": "^3.3.3",
+    "getdistance": "^1.0.0",
+    "haversine": "^1.1.1",
+    "haversine-distance": "^1.2.1",
+    "helmet": "^5.0.2",
+    "html-pdf": "^2.1.0",
+    "http-status-codes": "^2.2.0",
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "jet-logger": "^1.1.5",
+    "joi": "^17.6.0",
+    "jquery-fusioncharts": "^1.2.1",
+    "js-datepicker": "^5.18.0",
+    "jsonfile": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mocha-test-url": "^0.1.17",
+    "module-alias": "^2.2.2",
+    "moment-range": "^4.0.2",
+    "moment-timezone": "^0.5.34",
     "mongodb": "^4.10.0",
-    "mongoose": "^6.6.5",
-    "request": "^2.88.2"
+    "mongoose": "^6.2.7",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "multer-storage": "^0.4.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "node-cron": "^3.0.2",
+    "node-schedule": "^2.1.1",
+    "pdfmake": "^0.2.5",
+    "promise": "^8.1.0",
+    "qrcode": "^1.5.1",
+    "save": "^2.9.0",
+    "socket.io": "^4.5.0",
+    "stripe": "^11.8.0",
+    "supertest": "^6.3.3",
+    "tscpaths": "^0.0.9",
+    "twilio": "^3.82.2",
+    "underscore": "^1.13.2",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/command-line-args": "^5.2.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/find": "^0.2.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^29.4.0",
+    "@types/jquery": "^3.5.16",
+    "@types/jsonfile": "^6.1.0",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.45",
+    "@types/qrcode": "^1.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "axios": "^0.26.1",
+    "chai": "^4.3.7",
+    "eslint": "^8.11.0",
+    "find": "^0.3.0",
+    "fs-extra": "^10.0.1",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.6.4",
+    "tsconfig-paths": "^3.14.0",
+    "typescript": "^4.9.5",
+    "typescript-module-alias": "^1.0.2"
   }
 }

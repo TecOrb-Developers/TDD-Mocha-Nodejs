@@ -1,10 +1,48 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "rootDir": "./",
-      "outDir": "./build",
-      "esModuleInterop": true,
-      "strict": true
-    }
-  }
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "target": "es6",  
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "baseUrl": "./", 
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@server": [
+        "src/server"
+      ],
+      "@routes/*": [
+        "src/routes/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@controllers/*": [
+        "src/controllers/*"
+      ],
+      "@validators/*": [
+        "src/validators/*"
+      ],
+      "@constants": [
+        "src/constants/index"
+      ],
+      "@test": [
+        "src/test/*"
+      ]
+    },
+    "useUnknownInCatchVariables": false
+  },
+  "include": [
+    "src/**/*.ts",
+    "spec/**/*.ts",
+    "src/test/**/*_spec.ts"
+, "src/public/web/scripts/dashboard.js", "src/routes/app/door_Keeper", "src/public/admin/scripts/listing/vendor_category.JS", "auth.spec.ts"  ],
+  "exclude": [
+    "src/public/"
+  ]
+}
