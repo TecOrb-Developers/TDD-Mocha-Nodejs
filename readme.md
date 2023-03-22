@@ -21,11 +21,13 @@
 
 `Bcryptjs`
 
-`Mocha: npm install mocha`
+`Mocha: npm install --save-dev @types/mocha`
 
-`Chai: npm install chai`
+`Chai: npm install --save-dev @types/chai`
 
-`Chai-http: npm install chai-http`
+`Chai-http: npm install --save-dev @types/chai-http`
+
+`Request: npm install --save-dev @types/request`
 ## Setup Steps:
 `npm install`
 ### local server
