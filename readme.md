@@ -13,7 +13,7 @@
 `Admin Login via password`
 
 ## Server
-`PORT=3000`
+`PORT=3009`
 
 `HOST=localhost`
 
